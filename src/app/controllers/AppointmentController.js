@@ -116,6 +116,8 @@ class AppointmentController {
   async delete(req, res) {
     const appointment = await Appointment.findByPk(req.params.id);
 
+    console.log(appointment);
+
     if (appointment.user_id !== req.userId) {
       return res
         .status(401)
@@ -128,7 +130,7 @@ class AppointmentController {
     // dateWithSub: 11h
     // now: 11:25
 
-    if ((isBefore(dateWithSub), new Date())) {
+    if (isBefore(dateWithSub, new Date())) {
       return res.status(401).json({
         error: ' You can only cancel appointments 2 hours in advance',
       });
