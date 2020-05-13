@@ -81,7 +81,6 @@ class UserController {
       id,
       name,
       email,
-      provider,
       avatar,
     });
   }
